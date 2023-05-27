@@ -1,7 +1,7 @@
 .note {
     padding: 25px;
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     background-color: blueviolet;
@@ -28,8 +28,13 @@
     cursor: pointer;
     opacity: 0;
     transition: 300ms;
+    height: auto;
+    width: 22px;
+    
   }
+
   
   .note:hover .note_footer img {
     opacity: 1;
+
   }
