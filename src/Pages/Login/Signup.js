@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import PrimaryButton from "../Button/PrimaryButton";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Contexts/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Signup = () => {
- 
+    const {createUser}=useContext(AuthContext);
 
+    const handleSignUp = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email,password)
+        .then(result=>{
+            const user=result.user;
+            console.log(user);
+            toast.success("Your successfully signIn");
+
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
   return (
     <div className="flex justify-center items-center pt-8">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
@@ -13,6 +32,7 @@ const Signup = () => {
           <p className="text-sm text-gray-400">Create a new account</p>
         </div>
         <form
+        onSubmit={handleSignUp}
           noValidate=""
           action=""
           className="space-y-12 ng-untouched ng-pristine ng-valid"
@@ -26,30 +46,19 @@ const Signup = () => {
                 type="text"
                 name="name"
                 id="name"
-                // required
+                required
                 placeholder="Enter Your Name Here"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900"
                 data-temp-mail-org="0"
               />
             </div>
-            <div>
-              <label htmlFor="image" className="block mb-2 text-sm">
-                Select Image:
-              </label>
-              <input
-                type="file"
-                id="image"
-                name="image"
-                accept="image/*"
-                // required
-              />
-            </div>
+          
             <div>
               <label htmlFor="email" className="block mb-2 text-sm">
                 Email address
               </label>
               <input
-                // required
+                required
                 type="email"
                 name="email"
                 id="email"
@@ -82,7 +91,7 @@ const Signup = () => {
                 type="submit"
                 classes="w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-orange-300 hover:font-bold text-gray-100"
               >
-                
+                Sign-Up
               </PrimaryButton>
             </div>
           </div>

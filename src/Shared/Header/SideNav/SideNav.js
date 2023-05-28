@@ -7,8 +7,9 @@ const SideNav = () => {
   const [percent,setPercent]=useState(0)
 
   useEffect(() => {
-    fetch("http://localhost:5000/category").then((res) =>
-      res.json().then((data) => setCategories(data))
+    fetch("http://localhost:5000/category")
+    .then((res) =>res.json()
+    .then((data) => setCategories(data))
     );
   }, []);
   return (
