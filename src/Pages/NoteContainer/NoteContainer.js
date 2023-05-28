@@ -17,7 +17,7 @@ const NoteContainer = (props) => {
     
 
     return (
-        <div className='note-container'>
+        <div className='note-container '>
         <h2 className='mt-2 text-gray-700'>Keep Notes :</h2>
         <div className='note-container_notes'>
         {

@@ -13,9 +13,15 @@ const Header = () => {
         <li className="nav-item  	">
           <a href="/" className="nav-link">Home</a>
         </li>
+        <li className="nav-item  	">
+          <a href="/category/01" className="nav-link">Tutorials</a>
+        </li>
         
         <li className="nav-item">
           <a href="/login" className="nav-link">Login</a>
+        </li>
+        <li className="nav-item">
+          <a href="/signup" className="nav-link">Signup</a>
         </li>
       </ul>
       <div className="search-container">
